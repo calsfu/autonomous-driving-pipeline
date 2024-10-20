@@ -32,7 +32,6 @@ class LaneDetection:
 
     def front2bev(self, front_view_image):
         '''
-        ##### TODO #####
         This function should transform the front view image to bird-eye-view image.
 
         input:
@@ -77,28 +76,11 @@ class LaneDetection:
                                             dst_points)
         bev_image = cv2.warpPerspective(image, matrix, (320, 240))
 
-        # segmentation 
-        model = ADSCNet()
-        weights = torch.load('adscnet.pth', weights_only=True, map_location=torch.device('cpu'))
-        model.load_state_dict(weights, strict=False)
-        model.eval()
-        #256 x 256
-        image = cv2.resize(front_view_image, (256, 256))
-        image = torch.from_numpy(image).permute(2, 0, 1).unsqueeze(0).float()
-        # predict
-        with torch.no_grad():
-            output = model(image)
-        output = output.squeeze().numpy()
-        output = cv2.resize(output, (320, 240))
-        cv2.imshow('image', output)
-        cv2.waitKey(0)
-
         return bev_image 
 
 
     def cut_gray(self, state_image_full):
         '''
-        ##### TODO #####
         This function should cut the image at the front end of the car
         and translate to grey scale
 
@@ -121,7 +103,6 @@ class LaneDetection:
 
     def edge_detection(self, gray_image):
         '''
-        ##### TODO #####
         In order to find edges in the gray state image, 
         this function should derive the absolute gradients of the gray state image.
         Derive the absolute gradients using numpy for each pixel. 
@@ -148,7 +129,6 @@ class LaneDetection:
 
     def find_maxima_gradient_rowwise(self, gradient_sum):
         '''
-        ##### TODO #####
         This function should output arguments of local maxima for each row of the gradient image.
         You can use scipy.signal.find_peaks to detect maxima. 
         Hint: Use distance argument for a better robustness.
@@ -234,7 +214,6 @@ class LaneDetection:
 
     def lane_detection(self, state_image_full):
         '''
-        ##### TODO #####
         This function should perform the road detection 
 
         args:
@@ -258,7 +237,6 @@ class LaneDetection:
         lane_boundary1_points, lane_boundary2_points, lane_found = self.find_first_lane_point(gradient_sum)
         # if no lane was found,use lane_boundaries of the preceding step
         if lane_found:
-            ##### TODO #####
             #  in every iteration: 
             # 1- find maximum/edge with the lowest distance to the last lane boundary point 
             # 2- append maxium to lane_boundary1_points or lane_boundary2_points
@@ -297,7 +275,6 @@ class LaneDetection:
                     
             ################
             
-            ##### TODO #####
             # spline fitting using scipy.interpolate.splprep 
             # and the arguments self.spline_smoothness
             # 

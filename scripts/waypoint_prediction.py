@@ -12,7 +12,6 @@ def normalize(v):
 
 def curvature(waypoints):
     '''
-    ##### TODO #####
     Curvature as the sum of the normalized dot product between the way elements
     Implement second term of the smoothin objective.
 
@@ -49,7 +48,6 @@ def smoothing_objective(waypoints, waypoints_center, weight_curvature=40):
 
 def waypoint_prediction(roadside1_spline, roadside2_spline, num_waypoints=6, way_type = "smooth"):
     '''
-    ##### TODO #####
     Predict waypoint via two different methods:
     - center
     - smooth 
@@ -65,7 +63,6 @@ def waypoint_prediction(roadside1_spline, roadside2_spline, num_waypoints=6, way
     tck2 = roadside2_spline
 
     if way_type == "center":
-        ##### TODO #####
      
         # create spline arguments
         param = np.linspace(0, 1, num_waypoints)
@@ -85,7 +82,6 @@ def waypoint_prediction(roadside1_spline, roadside2_spline, num_waypoints=6, way
         return way_points
     
     elif way_type == "smooth":
-        ##### TODO #####
 
         # create spline arguments
         param = np.linspace(0, 1, num_waypoints)
@@ -118,7 +114,6 @@ def waypoint_prediction(roadside1_spline, roadside2_spline, num_waypoints=6, way
 def target_speed_prediction(waypoints, num_waypoints_used=5,
                             max_speed=60, exp_constant=4.5, offset_speed=30):
     '''
-    ##### TODO #####
     Predict target speed given waypoints
     Implement the function using curvature()
 

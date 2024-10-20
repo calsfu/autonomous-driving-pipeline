@@ -27,7 +27,6 @@ class LateralController:
 
     def stanley(self, waypoints, speed):
         '''
-        ##### TODO #####
         one step of the stanley controller with damping
         args:
             waypoints (np.array) [2, num_waypoints]

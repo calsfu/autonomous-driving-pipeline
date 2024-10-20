@@ -29,7 +29,6 @@ class LongitudinalController:
 
     def PID_step(self, speed, target_speed):
         '''
-        ##### TODO ####
         Perform one step of the PID control
         - Implement the descretized control law.
         - Implement a maximum value for the sum of error you are using for the intgral term 
